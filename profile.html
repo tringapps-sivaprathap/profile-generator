@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: lightyellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        h1 {
+            font-family: Arial;
+        }
+        img {
+            height: 200px;
+            margin: 30px 0;
+        }
+        table {
+            width: 40vw;
+        }
+        table td {
+            padding: 10px 5px;
+            background-color: rgba(185, 148, 24, 0.178);
+        }
+        p {
+            color: darkred;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        span {
+            font-weight: normal;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>YOUR PROFILE:</h1>
+
+    <div id="photoDiv"></div>
+
+    <table>
+        <tr>
+            <td><p>Name:</p></td>
+            <td><span class="info"></span></td>
+        </tr>
+        <tr>
+            <td><p>Age:</p></td>
+            <td><span class="info"></span></td>
+        </tr>
+        <tr>
+            <td><p>Address:</p></td>
+            <td><span class="info"></span></td>
+        </tr>
+        <tr>
+            <td><p>Gender:</p></td>
+            <td><span class="info"></span></td>
+        </tr>
+    </table>
+
+    <script>
+        // showing photo
+        const photo = document.createElement("img");
+        photo.src = sessionStorage.getItem("photoName");
+        document.getElementById("photoDiv").appendChild(photo);
+
+        // showing details
+        var details = JSON.parse(sessionStorage.getItem("details"));
+        const info = document.querySelectorAll(".info");
+        var i = 0;
+        for(let key in details) {
+            info[i].innerHTML = details[key];
+            i++;
+        }
+    </script>
+</body>
+</html>
