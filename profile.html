@@ -19,7 +19,7 @@
             height: 100vh;
         }
         h1 {
-            font-family: Arial;
+            font-family: Arial, Helvetica, sans-serif;
         }
         img {
             height: 200px;
@@ -44,14 +44,14 @@
     </style>
 </head>
 <body>
-    <h1>YOUR PROFILE:</h1>
+    <h1 id="cap">YOUR PROFILE:</h1>
 
     <div id="photoDiv"></div>
 
-    <table>
+    <table aria-describedby="cap">
         <tr>
-            <td><p>Name:</p></td>
-            <td><span class="info"></span></td>
+            <th><p>Name:</p></th>
+            <th><span class="info"></span></th>
         </tr>
         <tr>
             <td><p>Age:</p></td>
